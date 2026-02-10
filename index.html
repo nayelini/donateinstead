@@ -80,6 +80,7 @@
       overflow: hidden;
       background: #fff;
       max-width: 520px;
+      justify-self: end; /* ensure the image sits on the right column */
     }
     .header-hero img{
       display: block;
@@ -89,12 +90,13 @@
     .header-lower{
       display: grid;
       gap: 16px;
-      align-items: start;
+      align-items: center; /* vertically center text and image */
       margin-top: 14px;
     }
     @media (min-width: 860px){
       .header-lower{
-        grid-template-columns: minmax(320px, 520px) minmax(220px, 1fr);
+        /* left = flexible text column, right = image column */
+        grid-template-columns: 1fr minmax(220px, 520px);
       }
     }
     .header-lower .pillrow{
@@ -368,10 +370,6 @@
 
       <div class="header-lower">
         <div class="pillrow" aria-label="Site principles">
-          <div class="pill"><span class="dot ok" aria-hidden="true"></span>Direct-to-organization donation links</div>
-          <div class="pill"><span class="dot" aria-hidden="true"></span>Simple, shareable giving rules</div>
-          <div class="pill"><span class="dot warn" aria-hidden="true"></span>No neutrality claims / no “offset” label</div>
-          <div class="pill"><span class="dot bad" aria-hidden="true"></span>No fundraising / no ads</div>
         </div>
 
         <div class="header-hero">
@@ -464,7 +462,7 @@
         category: "Ocean protection",
         region: "Global",
         featured: true,
-        summary: "Direct-action ocean conservation focused on protecting marine wildlife and stopping illegal activities at sea.",
+        summary: "Global direct-action ocean conservation movement founded by Paul Watson in 1977. They use a fleet of vessels to confront illegal fishing (e.g. of sharks and whales), poaching, and habitat destruction on the high seas where traditional law enforcement often can't reach.",
         trustSignals: ["Transparency / annual reporting", "Long track record"],
         donateUrl: "https://www.seashepherd.org/donate/",
         learnUrl: "https://www.seashepherd.org/"
@@ -474,71 +472,51 @@
         category: "Coral & reefs",
         region: "Pacific / Oceania",
         featured: true,
-        summary: "Coral restoration and reef regeneration work with a strong public-facing education effort.",
+        summary: "Coral restoration and reef regeneration project led by Titouan Bernicot since 2021. You can adopt a coral and give it a name & you'll receive updates on the coral's journey through life.",
         trustSignals: ["Project updates", "Partner ecosystem"],
-        donateUrl: "https://coralgardeners.org/",
+        donateUrl: "https://coralgardeners.org/pages/donate-coral-bleaching",
         learnUrl: "https://coralgardeners.org/"
       },
       {
         name: "Ocean Cleanup (The Ocean Cleanup)",
         category: "Ocean protection",
         region: "Global",
-        featured: false,
-        summary: "Engineering-led projects aiming to remove plastic from oceans and intercept it in rivers.",
+        featured: true,
+        summary: 'Organisation with really motivated guys that are tackling plastic in our oceans from two angles: deploying giant floating systems to harvest plastic from the Great Pacific Garbage Patch and placing solar-powered "Interceptors" in the world’s most polluting rivers to stop trash before it ever reaches the sea. They then upcycle the plastic into e.g. chairs or similar. The founder regularly posts videos of him standing in disgustingly polluted rivers',
         trustSignals: ["Public reporting", "Clear project milestones"],
         donateUrl: "https://theoceancleanup.com/donate/",
         learnUrl: "https://theoceancleanup.com/"
       },
       {
-        name: "Rainforest Trust",
-        category: "Habitats & biodiversity",
+        name: "The World Food Programme",
+        category: "Food security",
         region: "Global",
         featured: false,
-        summary: "Protects threatened tropical habitats by purchasing and safeguarding land with local partners.",
+        summary: 'Organisation with really motivated guys that are tackling plastic in our oceans from two angles: deploying giant floating systems to harvest plastic from the Great Pacific Garbage Patch and placing solar-powered "Interceptors" in the world’s most polluting rivers to stop trash before it ever reaches the sea. They then upcycle the plastic into e.g. chairs or similar. The founder regularly posts videos of him standing in disgustingly polluted rivers',
+        trustSignals: ["Public reporting", "Clear project milestones"],
+        donateUrl: "https://donate.wfp.org/1243/donation/regular/?campaign=1517&_gl=1*1i5z88*_up*MQ..*_gs*MQ..&gclid=CjwKCAiA64LLBhBhEiwA-Pxguz2jggswq6SbkD_aLKk-SoNnzsUgYx2KhHuRDndDmO53zTBr9yp48BoC6fkQAvD_BwE&gclsrc=aw.ds&gbraid=0AAAAACOf4HrqeL9eQRhOAtFN9MMdMX472&survey=true",
+        learnUrl: "https://www.wfp.org/?_gl=1*1i5z88*_up*MQ..*_gs*MQ..&gclid=CjwKCAiA64LLBhBhEiwA-Pxguz2jggswq6SbkD_aLKk-SoNnzsUgYx2KhHuRDndDmO53zTBr9yp48BoC6fkQAvD_BwE&gclsrc=aw.ds&gbraid=0AAAAACOf4HrqeL9eQRhOAtFN9MMdMX472"
+      },
+      {
+        name: "Pangolin Crisis Fund",
+        category: "Animals & conservation",
+        region: "Global",
+        featured: true,
+        summary: 'A conservation initiative focused on protecting the world’s most trafficked mammal: Pangolins. They work to curb the illegal trade of pangolin scales and meat (because some people like to eat it :( )) by supporting frontline conservationists in Africa and Asia, funding innovation grants for new tracking technologies, and raising global awareness to end the demand for pangolin products.',
         trustSignals: ["Project-based giving", "Reporting / partner model"],
-        donateUrl: "https://www.rainforesttrust.org/donate/",
-        learnUrl: "https://www.rainforesttrust.org/"
-      },
-      {
-        name: "Against Malaria Foundation",
-        category: "Global health",
-        region: "Africa / Global South",
-        featured: false,
-        summary: "Funds malaria prevention primarily through distribution of insecticide-treated nets with extensive reporting.",
-        trustSignals: ["Strong monitoring", "Evidence-focused"],
-        donateUrl: "https://www.againstmalaria.com/donate.aspx",
-        learnUrl: "https://www.againstmalaria.com/"
-      },
-      {
-        name: "Clean Air Task Force",
-        category: "Climate solutions",
-        region: "Global",
-        featured: false,
-        summary: "Policy and technical work to reduce emissions through high-impact climate and energy interventions.",
-        trustSignals: ["Policy wins", "Technical publications"],
-        donateUrl: "https://www.catf.us/donate/",
-        learnUrl: "https://www.catf.us/"
+        donateUrl: "https://donate.wildnet.org/?fund=Pangolins",
+        learnUrl: "https://www.savepangolins.org"
       },
       {
         name: "Doctors Without Borders (MSF)",
         category: "Humanitarian aid",
         region: "Global",
         featured: false,
-        summary: "Medical humanitarian organization providing emergency assistance, independent of governments where possible.",
+        summary: "Medical humanitarian organization providing emergency assistance, independent of governments where possible. It was always little Nayeli's dream to become a doctor without a border. Now she's an engineer ups.",
         trustSignals: ["Long track record", "Independent governance model"],
         donateUrl: "https://www.doctorswithoutborders.org/donate",
         learnUrl: "https://www.doctorswithoutborders.org/"
       },
-      {
-        name: "International Rescue Committee",
-        category: "Humanitarian aid",
-        region: "Global",
-        featured: false,
-        summary: "Supports people affected by crisis and conflict via health, safety, education, and economic programs.",
-        trustSignals: ["Program reporting", "Operational scale"],
-        donateUrl: "https://www.rescue.org/donate",
-        learnUrl: "https://www.rescue.org/"
-      }
     ];
 
     /***********************
@@ -659,10 +637,6 @@
             </div>
 
             <p class="desc">${escapeHtml(org.summary)}</p>
-
-            <div class="meta" aria-label="Trust signals">
-              ${tags.map(t => `<span class="badge"><span class="dot ok" aria-hidden="true"></span>${escapeHtml(t)}</span>`).join("")}
-            </div>
 
             <div class="actions">
               <a class="linkbtn primary" href="${escapeHtml(org.donateUrl)}" target="_blank" rel="noopener noreferrer">Donate directly ↗</a>
